@@ -25,3 +25,9 @@ export const getInitialPokemons = async (): Promise<IPokemon[]> => {
 
     return pokemonWithCompleteData;
 };
+
+export const getPokemonBySlug = async (slug: string): Promise<IPokemon> => {
+    const pokemon = fetchGet<IPokemon>(`pokemon/${slug}`);
+
+    return pokemon;
+};

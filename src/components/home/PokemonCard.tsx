@@ -7,20 +7,16 @@ import Link from "next/link";
 
 interface IPokemonCardProps {
     pokemon: IPokemon;
+    bgColor: string;
 }
 
-const PokemonCard = async ({ pokemon }: IPokemonCardProps) => {
+const PokemonCard = ({ pokemon, bgColor }: IPokemonCardProps) => {
     if (!pokemon) return <div>Not Found</div>;
-
-    const bgColor = POKEMON_TYPE_COLORS[pokemon.types[0].type.name];
 
     return (
         <Link href={`/pokemon/${pokemon.name}`}>
             <div
-                className={clsx(
-                    "flex flex-col items-center border rounded p-4 w-72 h-40 hover:cursor-pointer hover:scale-105 transition-all",
-                    bgColor
-                )}
+                className={`flex flex-col items-center border rounded p-4 w-72 h-40 hover:cursor-pointer hover:scale-105 transition-all ${bgColor}`}
             >
                 <span>
                     {pokemon.name} - {pokemon.types[0].type.name}

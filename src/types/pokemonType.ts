@@ -1,4 +1,4 @@
-interface PokemonTypes {
+interface IPokemonTypes {
     slot: number;
     type: {
         name: string;
@@ -6,7 +6,7 @@ interface PokemonTypes {
     };
 }
 
-interface PokemonStatus {
+export interface IPokemonStatus {
     base_stat: number;
     stat: {
         name: string;
@@ -14,7 +14,7 @@ interface PokemonStatus {
     };
 }
 
-interface PokemonSprites {
+interface IPokemonSprites {
     front_default: string;
     back_default: string;
 }
@@ -24,9 +24,9 @@ export interface IPokemon {
     name: string;
     height: number;
     weight: number;
-    types: PokemonTypes[];
-    status: PokemonStatus[];
-    sprites: PokemonSprites;
+    types: IPokemonTypes[];
+    stats: IPokemonStatus[];
+    sprites: IPokemonSprites;
 }
 
 export interface IPokemonAPIReturn<T> {
